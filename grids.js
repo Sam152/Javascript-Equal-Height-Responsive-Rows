@@ -26,6 +26,7 @@
    */
   $.fn.equalHeightGrid = function(columns){
     var $tiles = this;
+    $tiles.css('height', 'auto');
     for (var i = 0; i < $tiles.length; i++) {
       if (i % columns == 0) {
         var row = $($tiles[i]);
