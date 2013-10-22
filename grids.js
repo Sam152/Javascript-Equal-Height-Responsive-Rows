@@ -39,4 +39,21 @@
     return this;
   };
 
+  /**
+   * Detect how many columns there are in a given layout.
+   */
+  $.fn.detectGridColumns = function() {
+    var offset = 0, cols = 0;
+    this.each(function(i, elem) {
+      var elem_offset = $(elem).offset().top;
+      if (offset == 0 || elem_offset == offset) {
+        cols++;
+        offset = elem_offset;
+      } else {
+        return false;
+      }
+    });
+    return cols;
+  };
+
 })(jQuery);
