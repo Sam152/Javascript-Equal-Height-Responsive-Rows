@@ -9,7 +9,7 @@
       $element = $(element);
       var element_height;
       // Should we include the elements padding in it's height?
-      var includePadding = $element.css('box-sizing') == 'border-box';
+      var includePadding = ($element.css('box-sizing') == 'border-box') || ($element.css('-moz-box-sizing') == 'border-box');
       if (includePadding) {
         element_height = $element.innerHeight();
       } else {
