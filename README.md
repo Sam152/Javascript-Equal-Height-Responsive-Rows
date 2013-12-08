@@ -21,4 +21,4 @@ var columns = $elements.detectGridColumns();
 $elements.equalHeightGrid(columns);
 ```
 
-If you would like to run the above code as you enter and exit breakpoints (as opposed to simply binding to window.load) you can use <a href="https://github.com/ten1seven/jRespond">jRespond</a>.
+If you would like to run the above code as you enter and exit breakpoints (as opposed to simply binding to window.resize) you can use <a href="https://github.com/ten1seven/jRespond">jRespond</a>.
