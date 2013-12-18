@@ -56,4 +56,20 @@
     return cols;
   };
 
+  /**
+   * Ensure equal heights now, on ready, load and resize.
+   */
+  $.fn.responsiveEqualHeightGrid = function() {
+    var _this = this;
+    function syncHeights() {
+      console.log('test');
+      var cols = _this.detectGridColumns();
+      console.log(cols);
+      _this.equalHeightGrid(cols);  
+    }
+    $(window).bind('resize load', syncHeights);
+    syncHeights();
+    return this;
+  };
+
 })(jQuery);

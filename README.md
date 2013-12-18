@@ -21,4 +21,10 @@ var columns = $elements.detectGridColumns();
 $elements.equalHeightGrid(columns);
 ```
 
-If you would like to run the above code as you enter and exit breakpoints (as opposed to simply binding to window.resize) you can use <a href="https://github.com/ten1seven/jRespond">jRespond</a>.
+If you would like to keep the grids in sync on document ready, window load and resize, you can use the following as a shortcut to the above:
+
+```
+$('.group-of-elements').responsiveEqualHeightGrid();
+```
+
+If you would like to run the above code as you enter and exit breakpoints (as opposed to simply binding to window.resize) you can use <a href="https://github.com/ten1seven/jRespond">jRespond</a> and manually manage when "equalHeightGrid" is called.
