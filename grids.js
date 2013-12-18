@@ -62,7 +62,6 @@
   $.fn.responsiveEqualHeightGrid = function() {
     var _this = this;
     function syncHeights() {
-      console.log('test');
       var cols = _this.detectGridColumns();
       console.log(cols);
       _this.equalHeightGrid(cols);  
