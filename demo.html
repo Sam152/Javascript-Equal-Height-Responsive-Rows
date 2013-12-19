@@ -7,11 +7,16 @@
 <script type="text/javascript" src="grids.js"></script>
 
 <script type="text/javascript">
-	// Keep all of our elements the same height, all the time.
 	jQuery(function($) {
 		$('.element').responsiveEqualHeightGrid();	
 	});
 </script>
+
+<pre>
+jQuery(function($) {
+	$('.element').responsiveEqualHeightGrid();	
+});
+</pre>
 
 <div class="wrapper">
 	<div class="element">
@@ -74,7 +79,7 @@ body{
 
 .wrapper{
 	max-width:900px;
-	margin:0 auto;
+	margin:40px auto;
 }
 
 .element{
@@ -84,6 +89,9 @@ body{
 	width:200px;
 	float:left;
 	margin-right:20px;
+	padding:10px;
+	box-sizing:border-box;
+	border-radius:5px;
 }
 
 </style>
