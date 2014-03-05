@@ -32,4 +32,4 @@ If you would like to run the above code as you enter and exit breakpoints (as op
 Demo
 ----
 
-You can see a demo in action <a href="http://sam152.github.io/Javascript-Grids/demo.html">here</a>.
+You can see a demo in action <a href="http://sam152.github.io/Javascript-Equal-Height-Responsive-Rows/demo.html">here</a>.
