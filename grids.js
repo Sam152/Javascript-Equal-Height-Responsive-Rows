@@ -19,7 +19,7 @@
     });
     this.height(Math.max.apply(window, heights));
     return this;
-  }
+  };
 
   /**
    * Create a grid of equal height elements.
@@ -28,7 +28,7 @@
     var $tiles = this;
     $tiles.css('height', 'auto');
     for (var i = 0; i < $tiles.length; i++) {
-      if (i % columns == 0) {
+      if (i % columns === 0) {
         var row = $($tiles[i]);
         for(var n = 1;n < columns;n++){
           row = row.add($tiles[i + n]);
@@ -46,7 +46,7 @@
     var offset = 0, cols = 0;
     this.each(function(i, elem) {
       var elem_offset = $(elem).offset().top;
-      if (offset == 0 || elem_offset == offset) {
+      if (offset === 0 || elem_offset == offset) {
         cols++;
         offset = elem_offset;
       } else {
