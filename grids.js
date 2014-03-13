@@ -19,7 +19,7 @@
     });
     this.height(Math.max.apply(window, heights));
     return this;
-  }
+  };
 
   /**
    * Create a grid of equal height elements.
