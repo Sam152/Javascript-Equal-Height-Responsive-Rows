@@ -1,5 +1,15 @@
 A simple jQuery plugin to allow users to create equal height containers and grids using JavaScript where CSS2 cannot.
 
+Step 1:
+```
+wget https://github.com/Sam152/Javascript-Equal-Height-Responsive-Rows/raw/master/grids.js
+```
+
+Step 2:
+```
+$('.group-of-elements').responsiveEqualHeightGrid();
+```
+
 Usage
 -----
 
