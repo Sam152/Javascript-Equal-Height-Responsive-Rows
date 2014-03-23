@@ -3,9 +3,9 @@ A simple jQuery plugin to keep elements the same height, supporting resizing and
 Usage
 -----
 
-Download the plugin:
+Download the plugin (1.2kb):
 ```
-wget https://github.com/Sam152/Javascript-Equal-Height-Responsive-Rows/raw/master/grids.js
+wget https://github.com/Sam152/Javascript-Equal-Height-Responsive-Rows/raw/master/grids.min.js
 ```
 
 Then invoke the plugin like so:
