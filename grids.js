@@ -62,10 +62,14 @@
   $.fn.responsiveEqualHeightGrid = function() {
     var _this = this;
     function syncHeights() {
-      var cols = _this.detectGridColumns();
-      _this.equalHeightGrid(cols);  
+        var cols = _this.detectGridColumns();
+        _this.equalHeightGrid(cols);
+        setTimeout(resizeListener,100);
+      }
+    var resizeListener = function(){
+      $(window).one('resize load', syncHeights);
     }
-    $(window).bind('resize load', syncHeights);
+    resizeListener();
     syncHeights();
     return this;
   };
