@@ -17,7 +17,7 @@
       }
       heights.push(element_height);
     });
-    this.height(Math.max.apply(window, heights));
+    this.css('height', Math.max.apply(window, heights) + 'px');
     return this;
   };
 
