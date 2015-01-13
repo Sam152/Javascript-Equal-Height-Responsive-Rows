@@ -4,20 +4,24 @@
    * Set all elements within the collection to have the same height.
    */
   $.fn.equalHeight = function(){
-    var heights = [];
+    var heights = [],equalHeight;
     $.each(this, function(i, element){
-      var $element = $(element),
-          element_height,
+      var $element = $(element), element_height,
       // Should we include the elements padding in it's height?
-          includePadding = ($element.css('box-sizing') == 'border-box') || ($element.css('-moz-box-sizing') == 'border-box');
+      includePadding = ($element.css('box-sizing') == 'border-box') || ($element.css('-moz-box-sizing') == 'border-box');
       if (includePadding) {
         element_height = $element.innerHeight();
       } else {
         element_height = $element.height();
       }
+      this.originalHeight = element_height;
       heights.push(element_height);
     });
-    this.css('height', Math.max.apply(window, heights) + 'px');
+    equalHeight = Math.max.apply(window, heights);
+    this.css('height',  equalHeight + 'px');
+    $.each(this, function(){
+      this.equalHeight = equalHeight;
+    });
     return this;
   };
 
@@ -61,8 +65,17 @@
    */
   $.fn.responsiveEqualHeightGrid = function() {
     function syncHeights() {
-      var cols = this.detectGridColumns();
+      var cols = this.detectGridColumns(),currentHeights = [];
+      
+      $(this).each(function(i){
+        currentHeights[i] = this.equalHeight;
+      });
       this.equalHeightGrid(cols);
+      $(this).each(function(i){
+          if(currentHeights[i]!=this.equalHeight){
+            $(this).trigger('heightResize',[this.equalHeight,this.originalHeight]);
+          }
+      });
     }
     $(window).bind('resize load', $.proxy(syncHeights,this));
     $.proxy(syncHeights,this);
