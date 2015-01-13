@@ -1,5 +1,10 @@
 A simple jQuery plugin to keep elements the same height, supporting resizing and responsive layouts.
 
+Install via bower
+-----
+
+bower install Javascript-Equal-Height-Responsive-Rows
+
 Usage
 -----
 
