@@ -6,10 +6,10 @@
   $.fn.equalHeight = function(){
     var heights = [];
     $.each(this, function(i, element){
-      $element = $(element);
-      var element_height;
+      var $element = $(element),
+          element_height,
       // Should we include the elements padding in it's height?
-      var includePadding = ($element.css('box-sizing') == 'border-box') || ($element.css('-moz-box-sizing') == 'border-box');
+          includePadding = ($element.css('box-sizing') == 'border-box') || ($element.css('-moz-box-sizing') == 'border-box');
       if (includePadding) {
         element_height = $element.innerHeight();
       } else {
@@ -60,13 +60,12 @@
    * Ensure equal heights now, on ready, load and resize.
    */
   $.fn.responsiveEqualHeightGrid = function() {
-    var _this = this;
     function syncHeights() {
-      var cols = _this.detectGridColumns();
-      _this.equalHeightGrid(cols);  
+      var cols = this.detectGridColumns();
+      this.equalHeightGrid(cols);
     }
-    $(window).bind('resize load', syncHeights);
-    syncHeights();
+    $(window).bind('resize load', $.proxy(syncHeights,this));
+    $.proxy(syncHeights,this);
     return this;
   };
 
