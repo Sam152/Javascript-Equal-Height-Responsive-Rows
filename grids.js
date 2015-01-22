@@ -61,7 +61,7 @@
     /**
      * Ensure equal heights now, on ready, load and resize.
      */
-    $.fn.responsiveEqualHeightGrid = function() {
+    $.fn.responsiveEqualHeightGrid = function(callback) {
         var _this = this;
 
         function syncHeights() {
@@ -70,6 +70,7 @@
         }
         $(window).bind('resize load', syncHeights);
         syncHeights();
+	callback();
         return this;
     };
 
