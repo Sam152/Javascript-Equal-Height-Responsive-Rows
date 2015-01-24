@@ -1,3 +1,7 @@
+/**
+ * Javascript-Equal-Height-Responsive-Rows
+ * https://github.com/Sam152/Javascript-Equal-Height-Responsive-Rows
+ */
 (function($) {
   'use strict';
 
@@ -61,15 +65,28 @@
     /**
      * Ensure equal heights now, on ready, load and resize.
      */
+    var grids_event_uid = 0;
     $.fn.responsiveEqualHeightGrid = function() {
         var _this = this;
-
+        var event_namespace = '.grids_' + grids_event_uid;
+        _this.data('grids-event-namespace', event_namespace);
         function syncHeights() {
             var cols = _this.detectGridColumns();
             _this.equalHeightGrid(cols);
         }
-        $(window).bind('resize load', syncHeights);
+        $(window).bind('resize' + event_namespace + ' load' + event_namespace, syncHeights);
         syncHeights();
+        grids_event_uid++;
+        return this;
+    };
+
+    /**
+     * Unbind created events for a set of elements.
+     */
+    $.fn.responsiveEqualHeightGridDestroy = function() {
+        var _this = this;
+        _this.css('height', 'auto');
+        $(window).unbind(_this.data('grids-event-namespace'));
         return this;
     };
 

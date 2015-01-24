@@ -73,6 +73,11 @@ If you would like to keep the grids in sync on document ready, window load and r
 $('.group-of-elements').responsiveEqualHeightGrid();
 ```
 
+To clean up, you can call a destroy method.
+
+```
+$('.group-of-elements').responsiveEqualHeightGridDestroy();
+```
 
 The MIT License (MIT)
 
