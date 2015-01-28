@@ -70,7 +70,7 @@
         }
         $(window).bind('resize load', syncHeights);
         syncHeights();
-	callback();
+	if(typeof callback!="undefined") callback();
         return this;
     };
 
