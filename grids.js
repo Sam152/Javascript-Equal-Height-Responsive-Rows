@@ -30,7 +30,7 @@
      * Create a grid of equal height elements.
      */
     $.fn.equalHeightGrid = function(columns) {
-        var $tiles = this;
+        var $tiles = this.filter(':visible');
         $tiles.css('height', 'auto');
         for (var i = 0; i < $tiles.length; i++) {
             if (i % columns === 0) {
@@ -52,11 +52,14 @@
             cols = 0;
         this.each(function(i, elem) {
             var elemOffset = $(elem).offset().top;
-            if (offset === 0 || elemOffset === offset) {
-                cols++;
-                offset = elemOffset;
-            } else {
-                return false;
+	        var elemVisible = $(elem).is(":visible");
+            if (elemVisible) {
+                if (offset === 0 || elemOffset === offset) {
+                    cols++;
+                    offset = elemOffset;
+                } else {
+                    return false;
+                }
             }
         });
         return cols;
