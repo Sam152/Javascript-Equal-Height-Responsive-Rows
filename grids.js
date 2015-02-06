@@ -49,17 +49,15 @@
      */
     $.fn.detectGridColumns = function() {
         var offset = 0,
-            cols = 0;
-        this.each(function(i, elem) {
+            cols = 0,
+            $tiles = this.filter(':visible');
+        $tiles.each(function(i, elem) {
             var elemOffset = $(elem).offset().top;
-	        var elemVisible = $(elem).is(":visible");
-            if (elemVisible) {
-                if (offset === 0 || elemOffset === offset) {
-                    cols++;
-                    offset = elemOffset;
-                } else {
-                    return false;
-                }
+	        if (offset === 0 || elemOffset === offset) {
+				cols++;
+                offset = elemOffset;
+            } else {
+				return false;
             }
         });
         return cols;
