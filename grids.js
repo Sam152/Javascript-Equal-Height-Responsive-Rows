@@ -53,11 +53,11 @@
             $tiles = this.filter(':visible');
         $tiles.each(function(i, elem) {
             var elemOffset = $(elem).offset().top;
-	        if (offset === 0 || elemOffset === offset) {
-				cols++;
+            if (offset === 0 || elemOffset === offset) {
+                cols++;
                 offset = elemOffset;
             } else {
-				return false;
+                return false;
             }
         });
         return cols;
