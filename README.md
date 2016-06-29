@@ -38,6 +38,56 @@ You must select a every element which will be used in the grids calculation, the
 </div>
 ```
 
+You can also resize the columns whenever the window size changes with the following code:
+
+```
+(function (sel, len) {
+  sel.equalHeight();
+
+  // From http://stackoverflow.com/a/4541963/6461688
+  var waitForFinalEvent = (function () {
+    var timers = {};
+    return function (callback, ms, uniqueId) {
+      if (!uniqueId) {
+        uniqueId = "Don't call this twice without a uniqueId";
+      }
+      if (timers[uniqueId]) {
+        clearTimeout (timers[uniqueId]);
+      }
+      timers[uniqueId] = setTimeout(callback, ms);
+    };
+  })();
+
+  $(window).resize(function () {
+    waitForFinalEvent(function () {
+        sel.each(function () {
+          this.style.height = null;
+        });
+        sel.equalHeight();
+      },
+      50,
+      // From http://stackoverflow.com/a/1349426/6461688
+      (function (len) {
+        if (!len) {
+          len = 10;
+        }
+
+        var text = "";
+        var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+        for (var i = 0; i < len; i++) {
+          text += possible.charAt(Math.floor(Math.random() * possible.length));
+        }
+
+        return text;
+      })(len)
+    );
+  });
+})('.element');
+```
+
+This keeps the columns responsive and allows the column height to shrink when the window is enlarged.
+
 Demo
 ----
 
