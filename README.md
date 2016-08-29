@@ -19,7 +19,7 @@ Then invoke the plugin like so:
 ```
 $('.element').responsiveEqualHeightGrid();
 ```
-You must select a every element which will be used in the grids calculation, the elements do not need to be siblings of eachother, therefore both of the following are valid:
+You must select every element which will be used in the grids calculation, the elements do not need to be siblings of each other, therefore both of the following are valid:
 ```
 <div class="wrapper">
 	<div class="element">Content</div>
